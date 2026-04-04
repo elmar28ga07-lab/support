@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support Coin Stock Developer</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #f9f7f4; color: #1a1611; min-height: 100vh; }
+header { background: #1a1611; color: #FFB300; padding: 28px 20px 20px; text-align: center; }
+header h1 { font-size: 24px; font-weight: 700; }
+header p { color: #ccc; font-size: 13px; margin-top: 6px; }
+.container { max-width: 520px; margin: 0 auto; padding: 32px 16px 60px; }
+.intro { text-align: center; margin-bottom: 28px; color: #555; font-size: 14px; line-height: 1.8; }
+.tabs { display: flex; gap: 8px; margin-bottom: 20px; }
+.tab { flex: 1; padding: 10px 4px; border: 2px solid #e0d8cc; border-radius: 12px; background: transparent; cursor: pointer; text-align: center; }
+.tab .emoji { font-size: 22px; display: block; }
+.tab .symbol { font-size: 11px; font-weight: 700; color: #aaa; display: block; margin-top: 2px; }
+.tab.active-btc { border-color: #F7931A; background: rgba(247,147,26,0.08); }
+.tab.active-eth { border-color: #627EEA; background: rgba(98,126,234,0.08); }
+.tab.active-sol { border-color: #9945FF; background: rgba(153,69,255,0.08); }
+.tab.active-ada { border-color: #4A90E2; background: rgba(74,144,226,0.08); }
+.tab.active-btc .symbol { color: #F7931A; }
+.tab.active-eth .symbol { color: #627EEA; }
+.tab.active-sol .symbol { color: #9945FF; }
+.tab.active-ada .symbol { color: #4A90E2; }
+.panel { display: none; }
+.panel.active { display: block; }
+.qr-wrap { background: #fff; border-radius: 20px; padding: 24px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08); margin-bottom: 16px; }
+.coin-name { font-size: 15px; font-weight: 700; margin-bottom: 16px; }
+.coin-name.btc { color: #F7931A; }
+.coin-name.eth { color: #627EEA; }
+.coin-name.sol { color: #9945FF; }
+.coin-name.ada { color: #4A90E2; }
+.address-box { background: #f3efe8; border-radius: 12px; padding: 14px 16px; font-family: monospace; font-size: 11px; word-break: break-all; line-height: 1.7; color: #444; }
+.copy-btn { display: block; width: 100%; margin-top: 10px; padding: 12px; border: none; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; color: #fff; }
+.copy-btn.btc { background: #F7931A; }
+.copy-btn.eth { background: #627EEA; }
+.copy-btn.sol { background: #9945FF; }
+.copy-btn.ada { background: #4A90E2; }
+.copied-msg { text-align: center; font-size: 12px; color: #4CAF50; margin-top: 8px; height: 18px; }
+.note { text-align: center; font-size: 12px; color: #aaa; margin-top: 28px; line-height: 1.7; }
+footer { text-align: center; font-size: 12px; color: #aaa; padding: 24px 20px; border-top: 1px solid #e4ddd3; }
+</style>
+</head>
+<body>
+<header>
+<h1>🪙 Coin Stock</h1>
+<p>開発者を支援する / Support the Developer</p>
+</header>
+<div class="container">
+<p class="intro">Coin Stockをご利用いただきありがとうございます。<br>もし気に入っていただけたら、ご支援いただけると嬉しいです。<br><br>If you enjoy using Coin Stock, any support is greatly appreciated!</p>
+<div class="tabs">
+<button class="tab active-btc" onclick="showCoin('btc')"><span class="emoji">🟠</span><span class="symbol">BTC</span></button>
+<button class="tab" onclick="showCoin('eth')"><span class="emoji">🔷</span><span class="symbol">ETH</span></button>
+<button class="tab" onclick="showCoin('sol')"><span class="emoji">🟣</span><span class="symbol">SOL</span></button>
+<button class="tab" onclick="showCoin('ada')"><span class="emoji">🔵</span><span class="symbol">ADA</span></button>
+</div>
+<div id="panel-btc" class="panel active">
+<div class="qr-wrap"><div class="coin-name btc">Bitcoin (BTC)</div><canvas id="qr-btc"></canvas></div>
+<div class="address-box" id="addr-btc">3L7gBVDUyj6iXTMh8xR3mdPUEZM5HZWVDT</div>
+<button class="copy-btn btc" onclick="copyAddr('addr-btc')">📋 アドレスをコピー / Copy Address</button>
+<div class="copied-msg" id="msg-btc"></div>
+</div>
+<div id="panel-eth" class="panel">
+<div class="qr-wrap"><div class="coin-name eth">Ethereum (ETH)</div><canvas id="qr-eth"></canvas></div>
+<div class="address-box" id="addr-eth">0xBB77c5A8970e85353229bFB2Cf7a7b0b1389ED0f</div>
+<button class="copy-btn eth" onclick="copyAddr('addr-eth')">📋 アドレスをコピー / Copy Address</button>
+<div class="copied-msg" id="msg-eth"></div>
+</div>
+<div id="panel-sol" class="panel">
+<div class="qr-wrap"><div class="coin-name sol">Solana (SOL)</div><canvas id="qr-sol"></canvas></div>
+<div class="address-box" id="addr-sol">DxyXmNg598NoxN1igWKvEmvJ2sbNATL8EwgL2eLcEbog</div>
+<button class="copy-btn sol" onclick="copyAddr('addr-sol')">📋 アドレスをコピー / Copy Address</button>
+<div class="copied-msg" id="msg-sol"></div>
+</div>
+<div id="panel-ada" class="panel">
+<div class="qr-wrap"><div class="coin-name ada">Cardano (ADA)</div><canvas id="qr-ada"></canvas></div>
+<div class="address-box" id="addr-ada">addr1qy4xxsz22ql05nwxaxuhkp3ajpxcqmesppfn8jn49r6sjqwu6awn55egwgfnuy75kyegtuprnzua3du69hy4y2293s0qeduv70</div>
+<button class="copy-btn ada" onclick="copyAddr('addr-ada')">📋 アドレスをコピー / Copy Address</button>
+<div class="copied-msg" id="msg-ada"></div>
+</div>
+<p class="note">送金前にアドレスをよくご確認ください。<br>Please double-check the address before sending.<br>ありがとうございます 🙏</p>
+</div>
+<footer>&copy; 2026 Coin Stock – ARTIFAGOSE LAB</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+const coins={btc:'3L7gBVDUyj6iXTMh8xR3mdPUEZM5HZWVDT',eth:'0xBB77c5A8970e85353229bFB2Cf7a7b0b1389ED0f',sol:'DxyXmNg598NoxN1igWKvEmvJ2sbNATL8EwgL2eLcEbog',ada:'addr1qy4xxsz22ql05nwxaxuhkp3ajpxcqmesppfn8jn49r6sjqwu6awn55egwgfnuy75kyegtuprnzua3du69hy4y2293s0qeduv70'};
+const colors={btc:'#F7931A',eth:'#627EEA',sol:'#9945FF',ada:'#4A90E2'};
+Object.entries(coins).forEach(([c,a])=>{new QRCode(document.getElementById('qr-'+c),{text:a,width:200,height:200,colorDark:colors[c],colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M});});
+let current='btc';
+function showCoin(coin){document.getElementById('panel-'+current).classList.remove('active');document.getElementById('panel-'+coin).classList.add('active');document.querySelectorAll('.tab').forEach(t=>t.className='tab');event.currentTarget.className='tab active-'+coin;current=coin;}
+function copyAddr(id){const text=document.getElementById(id).textContent.trim();navigator.clipboard.writeText(text).then(()=>{const coin=id.replace('addr-','');const msg=document.getElementById('msg-'+coin);msg.textContent='✅ コピーしました！ Copied!';setTimeout(()=>msg.textContent='',2000);});}
+</script>
+</body>
+</html>
