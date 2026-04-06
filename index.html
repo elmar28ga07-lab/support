@@ -52,37 +52,37 @@
   <div class="container">
     <p class="intro">ARTIFAGOSE LABのアプリをご利用いただきありがとうございます。<br>もし気に入っていただけたら、ご支援いただけると嬉しいです。<br><br>If you enjoy using ARTIFAGOSE LAB's apps, any support is greatly appreciated!</p>
     <div class="tabs">
-        <button class="tab active-btc" onclick="showCoin('btc',this)"><span class="emoji">🟠</span>span><span class="symbol">BTC</span>span></button>button>
-        <button class="tab" onclick="showCoin('eth',this)"><span class="emoji">🔷</span>span><span class="symbol">ETH</span>span></button>button>
-        <button class="tab" onclick="showCoin('sol',this)"><span class="emoji">🟣</span>span><span class="symbol">SOL</span>span></button>button>
-        <button class="tab" onclick="showCoin('ada',this)"><span class="emoji">🔵</span>span><span class="symbol">ADA</span>span></button>button>
-    </div>div>
+        <button class="tab active-btc" onclick="showCoin('btc',this)"><span class="emoji">🟠</span><span class="symbol">BTC</span></button>
+        <button class="tab" onclick="showCoin('eth',this)"><span class="emoji">🔷</span><span class="symbol">ETH</span></button>
+        <button class="tab" onclick="showCoin('sol',this)"><span class="emoji">🟣</span><span class="symbol">SOL</span></button>
+        <button class="tab" onclick="showCoin('ada',this)"><span class="emoji">🔵</span><span class="symbol">ADA</span></button>
+    </div>
     <div id="panel-btc" class="panel active">
-        <div class="qr-wrap"><div class="coin-name btc">Bitcoin (BTC)</div>div><div class="qr-div" id="qr-btc"></div>div></div>div>
-        <div class="address-box" id="addr-btc">3L7gBVDUyj6iXTMh8xR3mdPUEZM5HZWVDT</div>div>
-        <button class="copy-btn btc" onclick="copyAddr('addr-btc','msg-btc')">📋 アドレスをコピー / Copy Address</button>button>
-        <div class="copied-msg" id="msg-btc"></div>div>
-    </div>div>
+        <div class="qr-wrap"><div class="coin-name btc">Bitcoin (BTC)</div><div class="qr-div" id="qr-btc"></div></div>
+        <div class="address-box" id="addr-btc">3L7gBVDUyj6iXTMh8xR3mdPUEZM5HZWVDT</div>
+        <button class="copy-btn btc" onclick="copyAddr('addr-btc','msg-btc')">📋 アドレスをコピー / Copy Address</button>
+        <div class="copied-msg" id="msg-btc"></div>
+    </div>
     <div id="panel-eth" class="panel">
-        <div class="qr-wrap"><div class="coin-name eth">Ethereum (ETH)</div>div><div class="qr-div" id="qr-eth"></div>div></div>div>
-        <div class="address-box" id="addr-eth">0xBB77c5A8970e85353229bFB2Cf7a7b0b1389ED0f</div>div>
-        <button class="copy-btn eth" onclick="copyAddr('addr-eth','msg-eth')">📋 アドレスをコピー / Copy Address</button>button>
-        <div class="copied-msg" id="msg-eth"></div>div>
+        <div class="qr-wrap"><div class="coin-name eth">Ethereum (ETH)</div><div class="qr-div" id="qr-eth"></div></div>
+        <div class="address-box" id="addr-eth">0xBB77c5A8970e85353229bFB2Cf7a7b0b1389ED0f</div>
+        <button class="copy-btn eth" onclick="copyAddr('addr-eth','msg-eth')">📋 アドレスをコピー / Copy Address</button>
+        <div class="copied-msg" id="msg-eth"></div>
     </div>div>
     <div id="panel-sol" class="panel">
-        <div class="qr-wrap"><div class="coin-name sol">Solana (SOL)</div>div><div class="qr-div" id="qr-sol"></div>div></div>div>
-        <div class="address-box" id="addr-sol">DxyXmNg598NoxN1igWKvEmvJ2sbNATL8EwgL2eLcEbog</div>div>
-        <button class="copy-btn sol" onclick="copyAddr('addr-sol','msg-sol')">📋 アドレスをコピー / Copy Address</button>button>
-        <div class="copied-msg" id="msg-sol"></div>div>
+        <div class="qr-wrap"><div class="coin-name sol">Solana (SOL)</div><div class="qr-div" id="qr-sol"></div></div>
+        <div class="address-box" id="addr-sol">DxyXmNg598NoxN1igWKvEmvJ2sbNATL8EwgL2eLcEbog</div>
+        <button class="copy-btn sol" onclick="copyAddr('addr-sol','msg-sol')">📋 アドレスをコピー / Copy Address</button>
+        <div class="copied-msg" id="msg-sol"></div>
     </div>div>
     <div id="panel-ada" class="panel">
-        <div class="qr-wrap"><div class="coin-name ada">Cardano (ADA)</div>div><div class="qr-div" id="qr-ada"></div>div></div>div>
-        <div class="address-box" id="addr-ada">addr1qy4xxsz22ql05nwxaxuhkp3ajpxcqmesppfn8jn49r6sjqwu6awn55egwgfnuy75kyegtuprnzua3du69hy4y2293s0qeduv70</div>div>
-        <button class="copy-btn ada" onclick="copyAddr('addr-ada','msg-ada')">📋 アドレスをコピー / Copy Address</button>button>
-        <div class="copied-msg" id="msg-ada"></div>div>
-    </div>div>
+        <div class="qr-wrap"><div class="coin-name ada">Cardano (ADA)</div><div class="qr-div" id="qr-ada"></div></div>
+        <div class="address-box" id="addr-ada">addr1qy4xxsz22ql05nwxaxuhkp3ajpxcqmesppfn8jn49r6sjqwu6awn55egwgfnuy75kyegtuprnzua3du69hy4y2293s0qeduv70</div>
+        <button class="copy-btn ada" onclick="copyAddr('addr-ada','msg-ada')">📋 アドレスをコピー / Copy Address</button>
+        <div class="copied-msg" id="msg-ada"></div>
+    </div>
     <p class="note">送金前にアドレスをよくご確認ください。<br>Please double-check the address before sending.<br>ありがとうございます 🙏</p>
-  </div>div>
+  </div>
   <footer>&copy; 2026 ARTIFAGOSE LAB</footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script>
