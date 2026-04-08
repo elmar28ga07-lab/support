@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Support Coin Stock Developer</title>
+  <title>Support – ARTIFAGOSE LAB</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -91,7 +91,6 @@
       word-break: break-all;
       line-height: 1.7;
       color: #444;
-      position: relative;
     }
     .copy-btn {
       display: block;
@@ -119,7 +118,6 @@
       color: #4CAF50;
       margin-top: 8px;
       height: 18px;
-      transition: opacity 0.3s;
     }
 
     .note {
@@ -142,7 +140,7 @@
 <body>
 
 <header>
-  <h1>🪙 Coin Stock</h1>
+  <h1>ARTIFAGOSE LAB</h1>
   <p>開発者を支援する / Support the Developer</p>
 </header>
 
@@ -154,81 +152,76 @@
   </p>
 
   <div class="tabs">
-    <button class="tab active-btc" onclick="showCoin('btc')">
+    <button class="tab active-btc" onclick="showCoin('btc', event)">
       <span class="emoji">🟠</span>
       <span class="symbol">BTC</span>
     </button>
-    <button class="tab" onclick="showCoin('eth')">
+    <button class="tab" onclick="showCoin('eth', event)">
       <span class="emoji">🔷</span>
       <span class="symbol">ETH</span>
     </button>
-    <button class="tab" onclick="showCoin('sol')">
+    <button class="tab" onclick="showCoin('sol', event)">
       <span class="emoji">🟣</span>
       <span class="symbol">SOL</span>
     </button>
-    <button class="tab" onclick="showCoin('ada')">
+    <button class="tab" onclick="showCoin('ada', event)">
       <span class="emoji">🔵</span>
       <span class="symbol">ADA</span>
     </button>
-    <button class="tab" onclick="showCoin('jpyc')">
+    <button class="tab" onclick="showCoin('jpyc', event)">
       <span class="emoji">🇯🇵</span>
       <span class="symbol">JPYC</span>
     </button>
   </div>
 
-  <!-- BTC -->
   <div id="panel-btc" class="panel active">
     <div class="qr-wrap">
       <div class="coin-name btc">Bitcoin (BTC)</div>
-      <canvas id="qr-btc"></canvas>
+      <div id="qr-btc"></div>
     </div>
     <div class="address-box" id="addr-btc">3L7gBVDUyj6iXTMh8xR3mdPUEZM5HZWVDT</div>
-    <button class="copy-btn btc" onclick="copyAddr('addr-btc', this)">📋 アドレスをコピー / Copy Address</button>
+    <button class="copy-btn btc" onclick="copyAddr('addr-btc')">📋 アドレスをコピー / Copy Address</button>
     <div class="copied-msg" id="msg-btc"></div>
   </div>
 
-  <!-- ETH -->
   <div id="panel-eth" class="panel">
     <div class="qr-wrap">
       <div class="coin-name eth">Ethereum (ETH)</div>
-      <canvas id="qr-eth"></canvas>
+      <div id="qr-eth"></div>
     </div>
     <div class="address-box" id="addr-eth">0xBB77c5A8970e85353229bFB2Cf7a7b0b1389ED0f</div>
-    <button class="copy-btn eth" onclick="copyAddr('addr-eth', this)">📋 アドレスをコピー / Copy Address</button>
+    <button class="copy-btn eth" onclick="copyAddr('addr-eth')">📋 アドレスをコピー / Copy Address</button>
     <div class="copied-msg" id="msg-eth"></div>
   </div>
 
-  <!-- SOL -->
   <div id="panel-sol" class="panel">
     <div class="qr-wrap">
       <div class="coin-name sol">Solana (SOL)</div>
-      <canvas id="qr-sol"></canvas>
+      <div id="qr-sol"></div>
     </div>
     <div class="address-box" id="addr-sol">DxyXmNg598NoxN1igWKvEmvJ2sbNATL8EwgL2eLcEbog</div>
-    <button class="copy-btn sol" onclick="copyAddr('addr-sol', this)">📋 アドレスをコピー / Copy Address</button>
+    <button class="copy-btn sol" onclick="copyAddr('addr-sol')">📋 アドレスをコピー / Copy Address</button>
     <div class="copied-msg" id="msg-sol"></div>
   </div>
 
-  <!-- ADA -->
   <div id="panel-ada" class="panel">
     <div class="qr-wrap">
       <div class="coin-name ada">Cardano (ADA)</div>
-      <canvas id="qr-ada"></canvas>
+      <div id="qr-ada"></div>
     </div>
     <div class="address-box" id="addr-ada">addr1qy4xxsz22ql05nwxaxuhkp3ajpxcqmesppfn8jn49r6sjqwu6awn55egwgfnuy75kyegtuprnzua3du69hy4y2293s0qeduv70</div>
-    <button class="copy-btn ada" onclick="copyAddr('addr-ada', this)">📋 アドレスをコピー / Copy Address</button>
+    <button class="copy-btn ada" onclick="copyAddr('addr-ada')">📋 アドレスをコピー / Copy Address</button>
     <div class="copied-msg" id="msg-ada"></div>
   </div>
 
-  <!-- JPYC (Avalanche) -->
   <div id="panel-jpyc" class="panel">
     <div class="qr-wrap">
       <div class="coin-name jpyc">JPYC (Avalanche)</div>
-      <canvas id="qr-jpyc"></canvas>
+      <div id="qr-jpyc"></div>
     </div>
-    <div style="font-size:12px;color:#888;margin-bottom:6px;">⚠️ アバランチ (Avalanche C-Chain) ネットワーク専用</div>
+    <div style="font-size:12px;color:#888;margin-bottom:6px;">⚠️ Avalanche C-Chain ネットワーク専用</div>
     <div class="address-box" id="addr-jpyc">0x1D679771cA11A3984983e8Fb5EB145198c6c4E0F</div>
-    <button class="copy-btn jpyc" onclick="copyAddr('addr-jpyc', this)">📋 アドレスをコピー / Copy Address</button>
+    <button class="copy-btn jpyc" onclick="copyAddr('addr-jpyc')">📋 アドレスをコピー / Copy Address</button>
     <div class="copied-msg" id="msg-jpyc"></div>
   </div>
 
@@ -240,7 +233,7 @@
 </div>
 
 <footer>
-  &copy; 2026 Coin Stock – ARTIFAGOSE LAB
+  &copy; 2026 ARTIFAGOSE LAB
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -267,17 +260,15 @@
 
   let current = 'btc';
 
-  function showCoin(coin) {
+  function showCoin(coin, e) {
     document.getElementById('panel-' + current).classList.remove('active');
     document.getElementById('panel-' + coin).classList.add('active');
-    document.querySelectorAll('.tab').forEach(t => {
-      t.className = 'tab';
-    });
-    event.currentTarget.className = 'tab active-' + coin;
+    document.querySelectorAll('.tab').forEach(t => { t.className = 'tab'; });
+    e.currentTarget.className = 'tab active-' + coin;
     current = coin;
   }
 
-  function copyAddr(id, btn) {
+  function copyAddr(id) {
     const text = document.getElementById(id).textContent.trim();
     navigator.clipboard.writeText(text).then(() => {
       const coin = id.replace('addr-', '');
